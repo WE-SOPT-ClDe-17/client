@@ -17,9 +17,12 @@ const globalStyles = createGlobalStyle`
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
     input, button {
-        /* outline: none; 
-        border: none; */
+        outline: none; 
+        border: none;
         background-color: transparent;                                                                                                                                                                        
+    }
+    input:focus, button:focus {
+        outline: none;
     }
     button {
         cursor: pointer;
