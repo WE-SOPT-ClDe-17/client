@@ -30,7 +30,7 @@ const TextNPost = () => {
         </StyledCnt>
       </StyledIntroExplain>
       <StyledPostHr />
-      <StyledPostBtn>제출</StyledPostBtn>
+      <StyledPostBtn isOver={isOver10}>제출</StyledPostBtn>
     </>
   );
 };
@@ -74,7 +74,10 @@ const StyledPostBtn = styled.button`
   width: 8.3rem;
   height: 3.7rem;
 
-  background-color: ${({ theme: { colors } }) => colors.buttonGray};
+  color: ${({ theme: { colors } }) => colors.white};
+  background-color: ${({ theme: { colors }, isOver }) => (isOver ? colors.red3 : colors.buttonGray)};
   /* 활성화 -> red3 */
   border-radius: 0.3rem;
+
+  ${({ isOver }) => !isOver && "&:hover {cursor: default}"}
 `;
