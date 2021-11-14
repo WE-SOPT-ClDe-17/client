@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const IntroText = () => {
+const TextNPost = () => {
   const MAX_NUM = 50;
   const [textCnt, setTextCnt] = useState(0);
   const [isOver10, setIsOver] = useState(false);
@@ -29,11 +29,13 @@ const IntroText = () => {
           {textCnt}/{MAX_NUM}
         </StyledCnt>
       </StyledIntroExplain>
+      <StyledPostHr />
+      <StyledPostBtn>제출</StyledPostBtn>
     </>
   );
 };
 
-export default IntroText;
+export default TextNPost;
 
 const StyledIntroText = styled.textarea`
   resize: none;
@@ -60,4 +62,19 @@ const StyledIntroExplain = styled.div`
 `;
 const StyledCnt = styled.p`
   color: ${({ theme: { colors }, isOver }) => (isOver ? colors.lightGray : colors.red1)};
+`;
+const StyledPostHr = styled.hr`
+  margin: 3.5rem 0 4.2rem;
+  border: 1px solid #efefef;
+`;
+const StyledPostBtn = styled.button`
+  position: absolute;
+  right: 0;
+
+  width: 8.3rem;
+  height: 3.7rem;
+
+  background-color: ${({ theme: { colors } }) => colors.buttonGray};
+  /* 활성화 -> red3 */
+  border-radius: 0.3rem;
 `;
