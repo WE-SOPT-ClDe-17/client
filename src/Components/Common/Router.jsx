@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Header";
-import Footer from "./Footer";
 import Home from "../../Pages/Home";
+import Post from "../../Pages/Post";
 
 const Router = () => {
   return (
@@ -10,9 +10,9 @@ const Router = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/post" element={<Post />} />
         <Route path="/*" element={<p>Page Not Found</p>} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 };
