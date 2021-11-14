@@ -118,10 +118,4 @@ const PostBtn = styled.button`
   border-radius: 0.3rem;
 `;
 
-// hr 색깔 : #efefef
-
-// input:focus, textarea:focus {
-//     outline: none;
-// }
-
 // 1. textarea 2. 라디오 버튼 3. POST 서버
