@@ -10,8 +10,6 @@ const Fonts = styled.h3`
 `;
 
 const Post = () => {
-  // const [textCnt, setTextCnt] = useState(0);
-  // setTextCnt(0);
   return (
     <StyledMain>
       <section>
@@ -28,10 +26,7 @@ const Post = () => {
         <StyledIntroH1>프로젝트를 간단하게 소개해주세요.</StyledIntroH1>
         <StyledIntroH3>나중에 수정 가능하니 편하게 적어주세요.</StyledIntroH3>
         <IntroText />
-        <StyledIntroExplain>
-          <p>최소 10자이상 입력해주세요.</p>
-          <p>0/50</p>
-        </StyledIntroExplain>
+
         <StyledPostHr />
         <StyledPostBtn>제출</StyledPostBtn>
       </StyeldSection>
@@ -76,14 +71,6 @@ const StyledIntroH3 = styled.h3`
   color: ${({ theme: { colors } }) => colors.lightGray};
   font-size: 1.4rem;
   line-height: 2.4rem;
-`;
-const StyledIntroExplain = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.2rem;
-  font-size: 1.2rem;
-  line-height: 2.4rem;
-  color: ${({ theme: { colors } }) => colors.red1};
 `;
 const StyledPostHr = styled.hr`
   margin: 3.5rem 0 4.2rem;
