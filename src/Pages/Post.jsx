@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Tags from "../Components/Post/Tags";
-import IntroText from "../Components/Post/IntroText";
+import TextNPost from "../Components/Post/TextNPost";
 
 const Post = () => {
   return (
@@ -19,10 +19,7 @@ const Post = () => {
       <StyeldSection>
         <StyledIntroH1>프로젝트를 간단하게 소개해주세요.</StyledIntroH1>
         <StyledIntroH3>나중에 수정 가능하니 편하게 적어주세요.</StyledIntroH3>
-        <IntroText />
-
-        <StyledPostHr />
-        <StyledPostBtn>제출</StyledPostBtn>
+        <TextNPost />
       </StyeldSection>
     </StyledMain>
   );
@@ -66,20 +63,3 @@ const StyledIntroH3 = styled.h3`
   font-size: 1.4rem;
   line-height: 2.4rem;
 `;
-const StyledPostHr = styled.hr`
-  margin: 3.5rem 0 4.2rem;
-  border: 1px solid #efefef;
-`;
-const StyledPostBtn = styled.button`
-  position: absolute;
-  right: 0;
-
-  width: 8.3rem;
-  height: 3.7rem;
-
-  background-color: ${({ theme: { colors } }) => colors.buttonGray};
-  /* 활성화 -> red3 */
-  border-radius: 0.3rem;
-`;
-
-// 1. textarea 2. 라디오 버튼 3. POST 서버
