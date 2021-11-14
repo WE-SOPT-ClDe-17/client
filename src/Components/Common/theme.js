@@ -9,6 +9,7 @@ const colors = {
   buttonGray: "#E5E5E5",
   contentGray: "#C4C4C4",
   heartGray: "#727474",
+  hrGray: "#EFEFEF",
   red1: "#FF5757",
   red2: "#FF7878",
   red3: "#E66D5B",
