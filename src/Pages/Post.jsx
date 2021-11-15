@@ -28,8 +28,13 @@ const Post = () => {
 export default Post;
 
 const StyledMain = styled.main`
-  max-width: 98.4rem;
+  /* 1044 - 30*4 = 984 */
+  max-width: 104.4rem;
   margin: 0 auto;
+  padding: 0 3rem;
+  @media ${({ theme: { device } }) => device.mobile} {
+    padding: 0 2.8rem;
+  }
 `;
 // const Section = styled.section``;
 const StyledTagH1 = styled.h1`
@@ -38,6 +43,15 @@ const StyledTagH1 = styled.h1`
   font-size: 2.4rem;
   line-height: 2.9rem;
   font-weight: bold;
+
+  @media ${({ theme: { device } }) => device.tablet} {
+    margin-top: 9rem;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    margin-top: 9.1rem;
+  }
 `;
 const StyledTagH3 = styled.h3`
   margin: 1.7rem 0 3.7rem;
@@ -45,16 +59,34 @@ const StyledTagH3 = styled.h3`
   color: ${({ theme: { colors } }) => colors.lightGray};
   font-size: 1.4rem;
   line-height: 2.4rem;
+
+  @media ${({ theme: { device } }) => device.tablet} {
+    margin: 0.9rem 0 2.9rem;
+
+    font-size: 1.3rem;
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    margin: 0.7rem 0 2.7rem;
+  }
 `;
 const StyeldSection = styled.section`
   position: relative;
 `;
 const StyledIntroH1 = styled.h1`
-  margin-top: 5.5rem;
+  margin-top: 8.9rem;
 
   font-size: 2.4rem;
   line-height: 2.9rem;
   font-weight: bold;
+
+  @media ${({ theme: { device } }) => device.tablet} {
+    margin-top: 5.9rem;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    margin-top: 5.6rem;
+  }
 `;
 const StyledIntroH3 = styled.h3`
   margin: 1.7rem 0 3.5rem;
@@ -62,4 +94,13 @@ const StyledIntroH3 = styled.h3`
   color: ${({ theme: { colors } }) => colors.lightGray};
   font-size: 1.4rem;
   line-height: 2.4rem;
+
+  @media ${({ theme: { device } }) => device.tablet} {
+    margin: 0.8rem 0 2.9rem;
+
+    font-size: 1.3rem;
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    margin: 0.7rem 0 2.8rem;
+  }
 `;
