@@ -46,6 +46,8 @@ const TagRadio = styled.input`
   overflow: hidden;
   clip: rect(1px 1px 1px 1px);
   margin: 0;
+
+  /* when checked, label css */
   &:checked + label {
     color: ${({ theme: { colors } }) => colors.white};
     background-color: ${({ theme: { colors } }) => colors.red3};
@@ -65,5 +67,19 @@ const TagRadioLabel = styled.label`
   text-align: center;
   &:hover {
     cursor: pointer;
+  }
+
+  @media ${({ theme: { device } }) => device.tablet} {
+    height: 3.3rem;
+    padding: 0 1.7rem;
+
+    line-height: 3.3rem;
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    height: 3.2rem;
+    padding: 0 1.6rem;
+
+    font-size: 1.2rem;
+    line-height: 3.2rem;
   }
 `;

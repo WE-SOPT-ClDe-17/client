@@ -39,7 +39,7 @@ export default TextNPost;
 
 const StyledIntroText = styled.textarea`
   resize: none;
-  width: 98.4rem;
+  width: 100%;
   height: 10rem;
 
   padding: 1rem 1.6rem;
@@ -51,6 +51,11 @@ const StyledIntroText = styled.textarea`
   &:hover {
     outline: none;
   }
+
+  font-size: 1.4rem;
+  @media ${({ theme: { device } }) => device.mobile} {
+    font-size: 1.2rem;
+  }
 `;
 const StyledIntroExplain = styled.div`
   display: flex;
@@ -59,6 +64,10 @@ const StyledIntroExplain = styled.div`
   font-size: 1.2rem;
   line-height: 2.4rem;
   color: ${({ theme: { colors } }) => colors.red1};
+
+  @media ${({ theme: { device } }) => device.tablet} {
+    font-size: 1.1rem;
+  }
 `;
 const StyledCnt = styled.p`
   color: ${({ theme: { colors }, isOver }) => (isOver ? colors.lightGray : colors.red1)};
@@ -66,6 +75,13 @@ const StyledCnt = styled.p`
 const StyledPostHr = styled.hr`
   margin: 3.5rem 0 4.2rem;
   border: 1px solid #efefef;
+
+  @media ${({ theme: { device } }) => device.tablet} {
+    margin: 2.7rem 0 1.5rem;
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    margin: 2.6rem 0 1.4rem;
+  }
 `;
 const StyledPostBtn = styled.button`
   position: absolute;
@@ -74,10 +90,19 @@ const StyledPostBtn = styled.button`
   width: 8.3rem;
   height: 3.7rem;
 
+  border-radius: 0.3rem;
+  font-size: 1.4rem;
   color: ${({ theme: { colors } }) => colors.white};
   background-color: ${({ theme: { colors }, isOver }) => (isOver ? colors.red3 : colors.buttonGray)};
-  /* 활성화 -> red3 */
-  border-radius: 0.3rem;
+  ${({ isOver }) => !isOver && "&:hover {cursor: default;}"}
 
-  ${({ isOver }) => !isOver && "&:hover {cursor: default}"}
+  @media ${({ theme: { device } }) => device.tablet} {
+    width: 8.1rem;
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    width: 7.7rem;
+    height: 3.6rem;
+
+    font-size: 1.2rem;
+  }
 `;
