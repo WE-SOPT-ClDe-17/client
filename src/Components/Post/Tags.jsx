@@ -63,4 +63,7 @@ const TagRadioLabel = styled.label`
   font-size: 1.4rem;
   line-height: 3.5rem;
   text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
 `;
