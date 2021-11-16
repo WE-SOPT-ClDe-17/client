@@ -1,0 +1,32 @@
+/* 
+  src: 사용할 폰트의 위치 및 형식 
+    Safari, Android, iOS => ttf
+    Modern Browsers => woff
+    IE6-IE8 => eot
+*/
+
+/*본문*/
+@font-face {
+  font-family: "Pretendard-Regular";
+  font-display: fallback;
+  src:url("./Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard-Medium";
+  font-display: fallback;
+  src: url("./Pretendard-Medium.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "Pretendard-Bold";
+  src: url("./Pretendard-Bold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
