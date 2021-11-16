@@ -4,9 +4,9 @@ import styled from "styled-components";
 const TextNPost = () => {
   const MAX_NUM = 50;
   const [textCnt, setTextCnt] = useState(0);
-  const [isOver10, setIsOver] = useState(false);
+  const [isOver10, setIsOver10] = useState(false);
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const target = e.target;
     const length = e.target.value.length;
 
@@ -14,11 +14,11 @@ const TextNPost = () => {
       target.value = target.value.substring(0, MAX_NUM);
       setTextCnt(MAX_NUM);
       return;
-    } else if (length >= 10) setIsOver(true);
-    else setIsOver(false);
+    } else if (length >= 10) setIsOver10(true);
+    else setIsOver10(false);
 
     setTextCnt(length);
-  }
+  };
 
   return (
     <>
