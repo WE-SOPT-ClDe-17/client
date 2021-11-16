@@ -42,7 +42,6 @@ const StyledMain = styled.main`
     padding: 0 2.8rem;
   }
 `;
-// const Section = styled.section``;
 const StyledTagH1 = styled.h1`
   margin-top: 5.5rem;
 
