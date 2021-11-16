@@ -2,36 +2,30 @@ import React from "react";
 import styled from "styled-components";
 
 const Tags = () => {
+  const tagsText = [
+    "게임",
+    "공연",
+    "디자인",
+    "만화",
+    "예술",
+    "음악",
+    "출판",
+    "테크",
+    "공예",
+    "사진",
+    "영화·비디오",
+    "푸드",
+    "패션",
+    "저널리즘",
+  ];
   return (
     <div>
-      <TagRadio type="radio" id="tag_radio1" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio1">게임</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio2" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio2">공연</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio3" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio3">디자인</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio4" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio4">만화</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio5" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio5">예술</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio6" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio6">음악</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio7" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio7">출판</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio8" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio8">테크</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio9" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio9">공예</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio10" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio10">사진</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio11" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio11">영화·비디오</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio12" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio12">푸드</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio13" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio13">패션</TagRadioLabel>
-      <TagRadio type="radio" id="tag_radio14" name="tag" />
-      <TagRadioLabel htmlFor="tag_radio14">저널리즘</TagRadioLabel>
+      {tagsText.map((text, idx) => (
+        <React.Fragment key={`tag-${idx - 1}`}>
+          <TagRadio type="radio" id={`tag_radio${idx - 1}`} name="tag" />
+          <TagRadioLabel htmlFor={`tag_radio${idx - 1}`}>{text}</TagRadioLabel>
+        </React.Fragment>
+      ))}
     </div>
   );
 };
