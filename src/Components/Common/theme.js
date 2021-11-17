@@ -23,10 +23,8 @@ const deviceSizes = {
 };
 
 const device = {
-  mobile: `screen and (max-width: ${deviceSizes.mobile}), 
-  screen and (max-height: ${deviceSizes.mobile}) and (orientation: landscape)`,
-  tablet: `screen and (max-width: ${deviceSizes.tablet}), 
-  screen and (max-height: ${deviceSizes.tablet}) and (orientation: landscape)`,
+  mobile: `only screen and (max-width: ${deviceSizes.mobile})`,
+  tablet: `only screen and (max-width: ${deviceSizes.tablet})`,
 };
 
 // export를 위한 정의
