@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Footer from "../Components/Home/Footer";
+import Banner from "../Components/Home/Banner";
 
 const Text = styled.h1`
   font-family: "Pretendard-Bold";
@@ -22,6 +23,7 @@ const Bold = styled.h1`
 const Home = () => {
   return (
     <>
+      <Banner></Banner>
       <Button>🔥 김 지 수 현 지 영 이 주 함 🔥</Button>
       <Text>볼드체</Text>
       <Medium>프리텐다드 미디엄</Medium>
