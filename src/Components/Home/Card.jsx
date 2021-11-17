@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { ReactComponent as TimeIcon } from "../../assets/icons/TimeIcon.svg";
+// import { ReactComponent as likeActiveIcon } from "../../assets/icons/likeActiveIcon.svg";
+// import { ReactComponent as likeInactiveIcon } from "./../assets/icons/likeInactiveIcon.svg";
 
 const StyledCardBox = styled.div`
   display: flex;
@@ -15,7 +18,7 @@ const StyledTitle = styled.h2`
   font-size: 2rem;
   line-height: 2.6rem;
   font-weight: 800;
-  margin: 1.6rem 0;
+  margin-top: 1.6rem;
 `;
 
 const StyledTag = styled.span`
@@ -23,6 +26,8 @@ const StyledTag = styled.span`
   font-size: 1.3rem;
   line-height: 2.6rem;
   font-family: "Pretendard-Regular";
+  margin-top: 0.7rem;
+  margin-bottom: 0.6rem;
 `;
 
 const StyledContent = styled.p`
@@ -30,7 +35,9 @@ const StyledContent = styled.p`
   font-size: 1.4rem;
   line-height: 2.4rem;
   font-family: "Pretendard-Regular";
-  margin: 0.7rem 0;
+  font-weight: 400;
+  margin-bottom: 1.3rem;
+  min-height: 4.8rem;
 `;
 
 const ThumbnailBox = styled.div`
@@ -56,6 +63,7 @@ const FundMoneyTag = styled.span`
   line-height: 2.6rem;
   font-family: "Pretendard-Regular";
   margin-right: 0.7rem;
+  vertical-align: middle;
 `;
 
 const FundRasingRate = styled.span`
@@ -63,10 +71,19 @@ const FundRasingRate = styled.span`
   font-size: 1.4rem;
   line-height: 2.6rem;
   font-family: "Pretendard-Regular";
+  vertical-align: middle;
+`;
+
+const TimeTagBox = styled.div`
+  & > svg {
+    vertical-align: middle;
+  }
 `;
 
 const TimeLimitTag = styled(FundRasingRate)`
   color: ${({ theme: { colors } }) => colors.gray2};
+  vertical-align: middle;
+  margin-left: 0.4rem;
 `;
 
 function Card({ data }) {
@@ -85,7 +102,10 @@ function Card({ data }) {
           <FundMoneyTag>{data.price}원</FundMoneyTag>
           <FundRasingRate>{data.fundRate}%</FundRasingRate>
         </div>
-        <TimeLimitTag>{data.timeLimit}시간 남음</TimeLimitTag>
+        <TimeTagBox>
+          <TimeIcon width="1.3rem" />
+          <TimeLimitTag>{data.timeLimit}시간 남음</TimeLimitTag>
+        </TimeTagBox>
       </CardFooter>
     </StyledCardBox>
   );
