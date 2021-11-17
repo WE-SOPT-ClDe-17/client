@@ -1,26 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import Footer from "../Components/Home/Footer";
 import Cards from "../Components/Home/Cards";
-// import ContentData from "../Lib/Constants/ContentData.json";
-
-const StyledRecommendBox = styled.div`
-  padding: 2.25rem;
-`;
-
-const StyledTitle = styled.h2`
-  font-family: "Pretendard";
-  font-size: 2rem;
-  line-height: 1.625rem;
-  font-weight: 700;
-`;
 
 const Home = () => {
   return (
     <>
-      <StyledRecommendBox>
-        <StyledTitle>2022 신년준비 위원회</StyledTitle>
-      </StyledRecommendBox>
       <Cards />
       <Footer />
     </>
