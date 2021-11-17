@@ -34,8 +34,8 @@ function Banner() {
       </SliderContainer>
       <Detail>
         <Content>
-          <p>2022</p>
-          <p>신년준비 위원회</p>
+          <span>2022</span>
+          <span>신년준비 위원회</span>
           <p>새로운 한 해를 준비해 보세요</p>
           <div>
             <button onClick={prevSlide}>
@@ -58,11 +58,36 @@ const StyledRoot = styled.div`
   margin: 0 auto;
   display: flex;
   overflow: hidden;
+  @media ${({ theme: { device } }) => device.tablet} {
+    width: 100%;
+    flex-direction: column;
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    width: 100%;
+    flex-direction: column;
+  }
 `;
 const SliderContainer = styled.div`
   display: flex;
   width: 64.7rem;
   height: 36.7rem;
+  & > img {
+    width: 100%;
+  }
+  @media ${({ theme: { device } }) => device.tablet} {
+    width: 100%;
+    height: 43.6rem;
+    img {
+      object-fit: cover;
+    }
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    width: 100%;
+    height: 20.5rem;
+    img {
+      object-fit: cover;
+    }
+  }
 `;
 const Detail = styled.div`
   color: white;
@@ -73,6 +98,15 @@ const Detail = styled.div`
   width: 33.7rem;
   height: 36.7rem;
   background-color: ${({ theme: { colors } }) => colors.titleBlack};
+  @media ${({ theme: { device } }) => device.tablet} {
+    width: 100%;
+    height: 12rem;
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    flex-direction: column;
+    width: 100%;
+    height: 12rem;
+  }
 `;
 
 const Content = styled.div`
@@ -82,7 +116,10 @@ const Content = styled.div`
   transform: translate(-50%, -50%);
   width: 27.7rem;
   line-height: 4rem;
-  & > p:nth-of-type(3) {
+  & > span {
+    display: block;
+  }
+  & > p {
     font-family: "Pretendard-Regular";
     font-size: 1.6rem;
     font-weight: normal;
@@ -91,5 +128,41 @@ const Content = styled.div`
   button {
     padding: 0;
     margin-right: 1rem;
+  }
+  @media ${({ theme: { device } }) => device.tablet} {
+    font-size: 2rem;
+    width: 90%;
+    & > span {
+      display: inline-block;
+    }
+    & > p {
+      margin-top: 0;
+    }
+    & > div {
+      display: flex;
+      justify-content: flex-end;
+    }
+    img {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    width: 90%;
+    & > span {
+      display: inline-block;
+    }
+    & > p {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+    & > div {
+      display: flex;
+      justify-content: flex-end;
+    }
+    img {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
   }
 `;
