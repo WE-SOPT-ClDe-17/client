@@ -1,19 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import Footer from "../Components/Home/Footer";
 import Cards from "../Components/Home/Cards";
 import Banner from "../Components/Home/Banner";
-
-const StyledRecommendBox = styled.div`
-  padding: 2.25rem;
-`;
-
-const StyledTitle = styled.h2`
-  font-family: "Pretendard";
-  font-size: 2rem;
-  line-height: 1.625rem;
-  font-weight: 700;
-`;
 
 const Home = () => {
   return (
