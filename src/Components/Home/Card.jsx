@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as TimeIcon } from "../../assets/icons/TimeIcon.svg";
-// import { ReactComponent as likeActiveIcon } from "../../assets/icons/likeActiveIcon.svg";
-// import { ReactComponent as likeInactiveIcon } from "./../assets/icons/likeInactiveIcon.svg";
+import { ReactComponent as LikeActive } from "../../assets/icons/likeActiveIcon.svg";
+import { ReactComponent as LikeInActive } from "../../assets/icons/likeInactiveIcon.svg";
+import { ReactComponent as _PickIcon } from "../../assets/icons/icn_pick.svg";
 
 const StyledCardBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 30.4rem;
   height: 43.2rem;
-
   margin: 3rem 1.8rem;
+  position: relative;
+
+  @media ${({ theme: { device } }) => device.mobile} {
+    margin: 4rem 2.8rem;
+  }
 `;
 
 const StyledTitle = styled.h2`
@@ -48,6 +53,22 @@ const ThumbnailBox = styled.div`
   overflow: hidden;
   border-radius: 0.5rem;
   object-fit: cover;
+  position: relative;
+`;
+
+const LikeButton = styled.button`
+  display: flex;
+  cursor: pointer;
+  position: absolute;
+  top: 1.4rem;
+  right: 1.1rem;
+`;
+
+const PickIcon = styled(_PickIcon)`
+  position: absolute;
+  left: -5px;
+  top: 7px;
+  z-index: 2;
 `;
 
 const CardFooter = styled.div`
@@ -86,25 +107,37 @@ const TimeLimitTag = styled(FundRasingRate)`
   margin-left: 0.4rem;
 `;
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function Card({ data }) {
-  // const [like, setLike] = useState(false);
+  const [like, setLike] = useState(false);
+  let time = 0;
+  if (data.timeLimit >= 24) {
+    time = `${Math.floor(data.timeLimit / 24)}일`;
+  } else {
+    time = `${data.timeLimit}시간`;
+  }
 
   return (
     <StyledCardBox>
+      <PickIcon />
       <ThumbnailBox>
         <img src={data.image} />
+        <LikeButton onClick={() => setLike(!like)}>{like ? <LikeInActive /> : <LikeActive />}</LikeButton>
       </ThumbnailBox>
       <StyledTitle>{data.title}</StyledTitle>
       <StyledTag>{data.tags.join(" | ")}</StyledTag>
       <StyledContent>{data.content}</StyledContent>
       <CardFooter>
         <div>
-          <FundMoneyTag>{data.price}원</FundMoneyTag>
+          <FundMoneyTag>{numberWithCommas(data.price)}원</FundMoneyTag>
           <FundRasingRate>{data.fundRate}%</FundRasingRate>
         </div>
         <TimeTagBox>
           <TimeIcon width="1.3rem" />
-          <TimeLimitTag>{data.timeLimit}시간 남음</TimeLimitTag>
+          <TimeLimitTag>{time} 남음</TimeLimitTag>
         </TimeTagBox>
       </CardFooter>
     </StyledCardBox>
