@@ -22,6 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "server": "json-server mock-api.json --watch --port 4000",
     "lint": "npm run lint-eslint && npm run lint-prettier",
     "lint-eslint": "eslint --ignore-path .gitignore src/**/*{js,jsx} --fix",
     "lint-prettier": "prettier --write \"src/**/*.(js|jsx)\""
