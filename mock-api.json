@@ -11,7 +11,7 @@
       "price": 1398000,
       "fundRate": 279,
       "timeLimit": 19,
-      "image": "../../Images/post_1@2x.png",
+      "image": "https://drive.google.com/file/d/1Iyaj_r7VuNANPXjevG_nqNQ18hQS0i-U/view?usp=sharing"
     },
     {
       "id": 1,
@@ -24,7 +24,7 @@
       "price": 1398000,
       "fundRate": 279,
       "timeLimit": 19,
-      "image": "../../Images/post_2@2x.png",
+      "image": "http://localhost:3000/Images/post_1@2x.png"
     },
     {
       "id": 2,
@@ -37,7 +37,7 @@
       "price": 1398000,
       "fundRate": 279,
       "timeLimit": 19,
-      "image": "../../Images/post_3@2x.png",
+      "image": "../../Images/post_3@2x.png"
     },
     {
       "id": 3,
@@ -50,7 +50,7 @@
       "price": 1142000,
       "fundRate": 279,
       "timeLimit": 19,
-      "image": "../../Images/post_4@2x.png",
+      "image": "../../Images/post_4@2x.png"
     },
     {
       "id": 4,
@@ -63,7 +63,7 @@
       "price": 766000,
       "fundRate": 279,
       "timeLimit": 19,
-      "image": "../../Images/post_5@2x.png",
+      "image": "../../Images/post_5@2x.png"
     },
     {
       "id": 5,
@@ -76,7 +76,7 @@
       "price": 1596000,
       "fundRate": 319,
       "timeLimit": 24,
-      "image": "../../Images/post_6@2x.png",
-    },
+      "image": "../../Images/post_6@2x.png"
+    }
   ]
 }
