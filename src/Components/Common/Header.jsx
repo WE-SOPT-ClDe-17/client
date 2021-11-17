@@ -5,22 +5,22 @@ import { LogoIcon, searchIcon, profileIcon, hamburgerIcon, plusIcon } from "../.
 const Header = () => {
   return (
     <StyledRoot>
-      <SContent>
-        <SLeft>
+      <Content>
+        <Menu>
           <button>프로젝트 둘러보기</button>
           <button>프로젝트 올리기</button>
           <img src={hamburgerIcon} alt="hamburgerIcon" />
           <img src={plusIcon} alt="plusIcon" />
-        </SLeft>
-        <SMiddle>
+        </Menu>
+        <Logo>
           <img src={LogoIcon} alt="LogoIcon" />
-        </SMiddle>
-        <SRight>
+        </Logo>
+        <Info>
           <img src={searchIcon} alt="searchIcon" />
           <p>이채연</p>
           <img src={profileIcon} alt="profileIcon" />
-        </SRight>
-      </SContent>
+        </Info>
+      </Content>
     </StyledRoot>
   );
 };
@@ -43,13 +43,14 @@ const StyledRoot = styled.nav`
   }
 `;
 
-const SContent = styled.div`
+const Content = styled.div`
   display: flex;
   justify-content: space-between;
   width: 98.4rem;
   height: 6.6rem;
   margin: 0 auto;
   position: relative;
+  font-family: "Pretendard-Medium";
   @media ${({ theme: { device } }) => device.tablet} {
     width: 90%;
     height: 6rem;
@@ -60,7 +61,7 @@ const SContent = styled.div`
   }
 `;
 
-const SLeft = styled.div`
+const Menu = styled.div`
   display: flex;
   align-items: center;
   & > img {
@@ -68,6 +69,10 @@ const SLeft = styled.div`
     width: 1.2rem;
     height: 1.2rem;
     margin-right: 2.2rem;
+  }
+  & > button {
+    font-family: "Pretendard-Medium";
+    font-weight: bold;
   }
   @media ${({ theme: { device } }) => device.tablet} {
     & > img {
@@ -87,7 +92,7 @@ const SLeft = styled.div`
   }
 `;
 
-const SMiddle = styled.div`
+const Logo = styled.div`
   display: flex;
   align-items: center;
   & > img {
@@ -98,9 +103,12 @@ const SMiddle = styled.div`
   }
 `;
 
-const SRight = styled.div`
+const Info = styled.div`
   display: flex;
   align-items: center;
+  & > p {
+    font-weight: bold;
+  }
   & > img:first-child {
     width: 2rem;
     height: 2rem;
