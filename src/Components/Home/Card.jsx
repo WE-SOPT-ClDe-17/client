@@ -25,7 +25,7 @@ const StyledContent = styled.p`
 function Card({ data }) {
   return (
     <StyledPostBox>
-      <img src={data.image} />
+      <img src={data.image} width={200} />
       <StyledTitle>{data.title}</StyledTitle>
       <StyledContent>{data.content}</StyledContent>
       <span>{data.tags}</span>
