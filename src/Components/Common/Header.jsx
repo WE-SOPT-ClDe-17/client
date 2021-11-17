@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { LogoIcon, searchIcon, profileIcon, hamburgerIcon, plusIcon } from "../../styles/images";
 
-const Header = () => {
+function Header() {
   return (
     <StyledRoot>
       <Content>
@@ -23,7 +23,7 @@ const Header = () => {
       </Content>
     </StyledRoot>
   );
-};
+}
 
 export default Header;
 

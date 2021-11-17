@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { kakaoIcon, facebookIcon, twitterIcon, instaIcon, naverIcon, brunchIcon } from "../../styles/images";
 
-const Footer = () => {
+function Footer() {
   return (
     <StyledRoot>
       <Main>
@@ -54,7 +54,7 @@ const Footer = () => {
       </Detail>
     </StyledRoot>
   );
-};
+}
 
 export default Footer;
 
