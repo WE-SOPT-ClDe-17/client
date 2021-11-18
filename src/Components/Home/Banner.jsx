@@ -53,7 +53,7 @@ function Banner() {
 
 export default Banner;
 
-const StyledRoot = styled.div`
+const StyledRoot = styled.section`
   width: 98.4rem;
   margin: 0 auto;
   display: flex;
@@ -67,7 +67,7 @@ const StyledRoot = styled.div`
     flex-direction: column;
   }
 `;
-const SliderContainer = styled.div`
+const SliderContainer = styled.section`
   display: flex;
   width: 64.7rem;
   height: 36.7rem;
@@ -89,7 +89,7 @@ const SliderContainer = styled.div`
     }
   }
 `;
-const Detail = styled.div`
+const Detail = styled.section`
   color: white;
   font-family: "Pretendard-Bold";
   font-size: 3rem;

@@ -8,30 +8,29 @@ function Footer() {
       <Main>
         <Content>
           <Info>
-            <div>
-              <p>텀블벅</p>
-              <p>공지사항</p>
-              <p>뉴스레터 구독</p>
-              <p>채용</p>
-              <p>제휴·협력</p>
-            </div>
-            <div>
-              <p>이용안내</p>
-              <p>헬프 센터</p>
-              <p>창작자 가이드</p>
-              <p>프로젝트 심사 기준</p>
-              <p>수수료 정책</p>
-            </div>
-            <div>
-              <p>정책</p>
-              <p>이용약관</p>
-              <p>개인정보 처리방침</p>
-            </div>
-            <div>
-              <p>App</p>
-              <p>안드로이드</p>
-              <p>iOS</p>
-            </div>
+            <ul>
+              <li>텀블벅</li>
+              <li>공지사항</li>
+              <li>뉴스레터 구독</li>
+              <li>채용</li>
+              <li>제휴·협력</li>
+            </ul>
+            <ul>
+              <li>헬프 센터</li>
+              <li>창작자 가이드</li>
+              <li>프로젝트 심사 기준</li>
+              <li>수수료 정책</li>
+            </ul>
+            <ul>
+              <li>정책</li>
+              <li>이용약관</li>
+              <li>개인정보 처리방침</li>
+            </ul>
+            <ul>
+              <li>App</li>
+              <li>안드로이드</li>
+              <li>iOS</li>
+            </ul>
           </Info>
           <Contact>
             <p>고객지원</p>
@@ -69,14 +68,14 @@ const StyledRoot = styled.footer`
   }
 `;
 
-const Main = styled.div`
+const Main = styled.section`
   font-size: 1.4rem;
   border-top: 1px solid ${({ theme: { colors } }) => colors.borderGray};
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.borderGray};
   color: ${({ theme: { colors } }) => colors.gray1};
 `;
 
-const Content = styled.div`
+const Content = styled.section`
   width: 98.4rem;
   height: 18.4rem;
   margin: 0 auto;
@@ -91,14 +90,14 @@ const Content = styled.div`
   }
 `;
 
-const Info = styled.div`
+const Info = styled.section`
   display: flex;
   flex: 1;
   font-family: "Pretendard-Regular";
-  & > div {
+  & > ul {
     margin-right: 1.2rem;
   }
-  & > div > p:first-child {
+  & > ul > li:first-child {
     font-family: "Pretendard-Medium";
     font-size: 1.6rem;
     color: ${({ theme: { colors } }) => colors.contentBlack};
@@ -123,7 +122,7 @@ const Contact = styled.div`
   }
 `;
 
-const Detail = styled.div`
+const Detail = styled.section`
   display: flex;
   justify-content: space-between;
   width: 98.4rem;

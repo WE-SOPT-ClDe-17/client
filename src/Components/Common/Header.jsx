@@ -61,7 +61,7 @@ const Content = styled.div`
   }
 `;
 
-const Menu = styled.div`
+const Menu = styled.section`
   display: flex;
   align-items: center;
   & > img {
@@ -92,7 +92,7 @@ const Menu = styled.div`
   }
 `;
 
-const Logo = styled.div`
+const Logo = styled.section`
   display: flex;
   align-items: center;
   & > img {
@@ -103,7 +103,7 @@ const Logo = styled.div`
   }
 `;
 
-const Info = styled.div`
+const Info = styled.section`
   display: flex;
   align-items: center;
   & > p {
