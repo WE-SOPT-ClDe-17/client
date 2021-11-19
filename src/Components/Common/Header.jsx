@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { LogoIcon, searchIcon, profileIcon, hamburgerIcon, plusIcon } from "../../assets/icons";
-
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <StyledRoot>
       <Content>
         <Menu>
           <button>프로젝트 둘러보기</button>
-          <button>프로젝트 올리기</button>
+          <Link to="/post">
+            <button>프로젝트 올리기</button>
+          </Link>
           <img src={hamburgerIcon} alt="hamburgerIcon" />
           <img src={plusIcon} alt="plusIcon" />
         </Menu>
@@ -70,7 +72,7 @@ const Menu = styled.section`
     height: 1.2rem;
     margin-right: 2.2rem;
   }
-  & > button {
+  button {
     font-family: "Pretendard-Medium";
     font-weight: bold;
   }
