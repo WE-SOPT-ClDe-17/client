@@ -12,7 +12,9 @@ function Header() {
             <button>프로젝트 올리기</button>
           </Link>
           <img src={hamburgerIcon} alt="hamburgerIcon" />
-          <img src={plusIcon} alt="plusIcon" />
+          <Link to="/post">
+            <img src={plusIcon} alt="plusIcon" />
+          </Link>
         </Menu>
         <Logo>
           <img src={LogoIcon} alt="LogoIcon" />
@@ -66,7 +68,7 @@ const Content = styled.div`
 const Menu = styled.section`
   display: flex;
   align-items: center;
-  & > img {
+  img {
     visibility: hidden;
     width: 1.2rem;
     height: 1.2rem;
@@ -77,7 +79,7 @@ const Menu = styled.section`
     font-weight: bold;
   }
   @media ${({ theme: { device } }) => device.tablet} {
-    & > img {
+    img {
       visibility: visible;
     }
     button {
@@ -85,7 +87,7 @@ const Menu = styled.section`
     }
   }
   @media ${({ theme: { device } }) => device.mobile} {
-    & > img {
+    img {
       visibility: visible;
     }
     button {
