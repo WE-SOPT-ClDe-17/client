@@ -3,12 +3,6 @@ import styled from "styled-components";
 import Tags from "../Components/Post/Tags";
 import TextNPost from "../Components/Post/TextNPost";
 
-const Fonts = styled.h3`
-  font-family: "Pretendard-Bold";
-  font-weight: 700;
-  font-size: 3rem;
-`;
-
 const Post = () => {
   return (
     <StyledMain>
