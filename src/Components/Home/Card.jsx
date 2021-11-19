@@ -5,7 +5,46 @@ import { ReactComponent as LikeActive } from "../../assets/icons/likeActiveIcon.
 import { ReactComponent as LikeInActive } from "../../assets/icons/likeInactiveIcon.svg";
 import { ReactComponent as _PickIcon } from "../../assets/icons/icn_pick.svg";
 
-const StyledCardBox = styled.div`
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function Card({ data }) {
+  const [like, setLike] = useState(false);
+  let restTime = 0;
+  if (data.timeLimit >= 24) {
+    restTime = `${Math.floor(data.timeLimit / 24)}일`;
+  } else {
+    restTime = `${data.timeLimit}시간`;
+  }
+
+  return (
+    <StyledCardBox>
+      <PickIcon />
+      <ThumbnailBox>
+        <img src={data.image} />
+        <LikeButton onClick={() => setLike(!like)}>{like ? <LikeInActive /> : <LikeActive />}</LikeButton>
+      </ThumbnailBox>
+      <StyledTitle>{data.title}</StyledTitle>
+      <StyledTag>{data.tags.join(" | ")}</StyledTag>
+      <StyledContent>{data.content}</StyledContent>
+      <CardFooter>
+        <div>
+          <FundMoneyTag>{numberWithCommas(data.price)}원</FundMoneyTag>
+          <FundRasingRate>{data.fundRate}%</FundRasingRate>
+        </div>
+        <TimeTagBox>
+          <TimeIcon width="1.3rem" />
+          <TimeLimitTag>{restTime} 남음</TimeLimitTag>
+        </TimeTagBox>
+      </CardFooter>
+    </StyledCardBox>
+  );
+}
+
+export default Card;
+
+const StyledCardBox = styled.article`
   display: flex;
   flex-direction: column;
   width: 30.4rem;
@@ -71,7 +110,7 @@ const PickIcon = styled(_PickIcon)`
   z-index: 2;
 `;
 
-const CardFooter = styled.div`
+const CardFooter = styled.footer`
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
@@ -106,42 +145,3 @@ const TimeLimitTag = styled(FundRasingRate)`
   vertical-align: middle;
   margin-left: 0.4rem;
 `;
-
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-function Card({ data }) {
-  const [like, setLike] = useState(false);
-  let time = 0;
-  if (data.timeLimit >= 24) {
-    time = `${Math.floor(data.timeLimit / 24)}일`;
-  } else {
-    time = `${data.timeLimit}시간`;
-  }
-
-  return (
-    <StyledCardBox>
-      <PickIcon />
-      <ThumbnailBox>
-        <img src={data.image} />
-        <LikeButton onClick={() => setLike(!like)}>{like ? <LikeInActive /> : <LikeActive />}</LikeButton>
-      </ThumbnailBox>
-      <StyledTitle>{data.title}</StyledTitle>
-      <StyledTag>{data.tags.join(" | ")}</StyledTag>
-      <StyledContent>{data.content}</StyledContent>
-      <CardFooter>
-        <div>
-          <FundMoneyTag>{numberWithCommas(data.price)}원</FundMoneyTag>
-          <FundRasingRate>{data.fundRate}%</FundRasingRate>
-        </div>
-        <TimeTagBox>
-          <TimeIcon width="1.3rem" />
-          <TimeLimitTag>{time} 남음</TimeLimitTag>
-        </TimeTagBox>
-      </CardFooter>
-    </StyledCardBox>
-  );
-}
-
-export default Card;

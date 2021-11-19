@@ -12,12 +12,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// const Button = styled.button`
-//   color: ${({ theme: { colors } }) => colors.red1};
-//   font-size: 3rem;
-
-//   @media ${({ theme: { device } }) => device.tablet} {
-//     color: green;
-//   }
-// `;
