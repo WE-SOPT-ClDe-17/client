@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import { bannerImage1, bannerImage2, prevIcon, nextIcon } from "../../styles/images";
+import { bannerImage1, bannerImage2, prevIcon, nextIcon } from "../../assets/icons";
 
 function Banner() {
   const TOTAL_SLIDES = 1;

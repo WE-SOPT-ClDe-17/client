@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { LogoIcon, searchIcon, profileIcon, hamburgerIcon, plusIcon } from "../../styles/images";
+import { LogoIcon, searchIcon, profileIcon, hamburgerIcon, plusIcon } from "../../assets/icons";
 
 function Header() {
   return (

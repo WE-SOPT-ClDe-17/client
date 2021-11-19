@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { kakaoIcon, facebookIcon, twitterIcon, instaIcon, naverIcon, brunchIcon } from "../../styles/images";
+import { kakaoIcon, facebookIcon, twitterIcon, instaIcon, naverIcon, brunchIcon } from "../../assets/icons";
 
 function Footer() {
   return (
