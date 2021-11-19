@@ -3,7 +3,7 @@ import Footer from "../Components/Home/Footer";
 import Cards from "../Components/Home/Cards";
 import Banner from "../Components/Home/Banner";
 
-const Home = () => {
+function Home() {
   return (
     <>
       <Banner></Banner>
@@ -11,6 +11,6 @@ const Home = () => {
       <Footer />
     </>
   );
-};
+}
 
 export default Home;

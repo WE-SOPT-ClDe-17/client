@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Tags = () => {
+function Tags() {
   const tagsText = [
     "게임",
     "공연",
@@ -28,7 +28,7 @@ const Tags = () => {
       ))}
     </div>
   );
-};
+}
 
 export default Tags;
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Tags from "../Components/Post/Tags";
 import TextNPost from "../Components/Post/TextNPost";
 
-const Post = () => {
+function Post() {
   return (
     <StyledMain>
       <section>
@@ -23,7 +23,7 @@ const Post = () => {
       </StyeldSection>
     </StyledMain>
   );
-};
+}
 
 export default Post;
 

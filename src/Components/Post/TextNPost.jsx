@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const TextNPost = () => {
+function TextNPost() {
   const MAX_NUM = 50;
   const [textCnt, setTextCnt] = useState(0);
   const [isOver10, setIsOver10] = useState(false);
@@ -33,7 +33,7 @@ const TextNPost = () => {
       <StyledPostBtn isOver={isOver10}>제출</StyledPostBtn>
     </>
   );
-};
+}
 
 export default TextNPost;
 
@@ -41,7 +41,7 @@ const StyledIntroText = styled.textarea`
   resize: none;
   width: 100%;
   height: 10rem;
-
+  font-family: "Pretendard-Regular";
   padding: 1rem 1.6rem;
   border: 1px solid ${({ theme: { colors }, isOver }) => (isOver ? colors.titleBlack : colors.red1)};
   box-sizing: border-box;

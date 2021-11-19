@@ -4,7 +4,7 @@ import Header from "./Header";
 import Home from "../../Pages/Home";
 import Post from "../../Pages/Post";
 
-const Router = () => {
+function Router() {
   return (
     <BrowserRouter>
       <Header />
@@ -15,6 +15,6 @@ const Router = () => {
       </Routes>
     </BrowserRouter>
   );
-};
+}
 
 export default Router;
