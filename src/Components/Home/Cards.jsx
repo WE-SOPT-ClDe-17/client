@@ -1,50 +1,15 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { client } from "../../Lib/api.js";
 import Card from "./Card";
 import styled from "styled-components";
 //json불러오기 -> .map하기
-
-const RecommendTagBox = styled.div`
-  max-width: 101rem;
-  margin: auto;
-  margin-top: 3.6rem;
-
-  @media ${({ theme: { device } }) => device.tablet} {
-    max-width: 68rem;
-  }
-  @media ${({ theme: { device } }) => device.mobile} {
-    max-width: 36rem;
-  }
-`;
-
-const StyledRecommendTag = styled.div`
-  font-family: "Pretendard";
-  font-size: 2rem;
-  line-height: 1.625rem;
-  font-weight: 700;
-  padding: 1.6rem 0 0 1.8rem;
-  width: 100%;
-`;
-
-const StyledCardsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 102rem;
-  margin: auto;
-  justify-content: center;
-`;
 
 function Cards() {
   //데이터 받아오기!:axios, async/await쓰장
   const [postData, setPostData] = useState([]);
 
   const getPostData = async () => {
-    const { data } = await axios.get("http://localhost:4000/data", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const { data } = await client.get("/data");
     console.log(`data`, data);
     setPostData(data);
   };
@@ -68,3 +33,34 @@ function Cards() {
 }
 
 export default Cards;
+
+const RecommendTagBox = styled.div`
+  max-width: 101rem;
+  margin: auto;
+  margin-top: 3.6rem;
+  /* 
+  @media ${({ theme: { device } }) => device.tablet} {
+    max-width: 68rem;
+  }
+  @media ${({ theme: { device } }) => device.mobile} {
+    max-width: 36rem;
+  } */
+`;
+
+const StyledRecommendTag = styled.div`
+  font-family: "Pretendard";
+  font-size: 2rem;
+  line-height: 1.625rem;
+  font-weight: 700;
+  padding: 1.6rem 0 0 1.8rem;
+  width: 100%;
+`;
+
+const StyledCardsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 102rem;
+  margin: auto;
+  justify-content: center;
+`;
