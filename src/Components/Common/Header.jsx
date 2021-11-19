@@ -80,7 +80,7 @@ const Menu = styled.section`
     & > img {
       visibility: visible;
     }
-    & > button {
+    button {
       display: none;
     }
   }
@@ -88,7 +88,7 @@ const Menu = styled.section`
     & > img {
       visibility: visible;
     }
-    & > button {
+    button {
       display: none;
     }
   }
