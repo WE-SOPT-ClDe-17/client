@@ -18,7 +18,7 @@ const colors = {
 
 // 반응형에 사용될 사이즈 정의
 const deviceSizes = {
-  mobile: "360px",
+  mobile: "414px",
   tablet: "768px",
 };
 
