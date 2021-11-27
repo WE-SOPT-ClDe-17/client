@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { serverClient } from "../../Lib/api";
 
-function TextNPost() {
+function TextNPost({ articleInfo, onChangeInfo }) {
   const MAX_NUM = 50;
   const [textCnt, setTextCnt] = useState(0);
   const [isOver10, setIsOver10] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const target = e.target;
@@ -14,23 +17,35 @@ function TextNPost() {
       target.value = target.value.substring(0, MAX_NUM);
       setTextCnt(MAX_NUM);
       return;
-    } else if (length >= 10) setIsOver10(true);
-    else setIsOver10(false);
+    } else if (length >= 10) {
+      setIsOver10(true);
+    } else {
+      setIsOver10(false);
+    }
 
     setTextCnt(length);
+    onChangeInfo("description", target.value);
   };
+
+  const handlePost = async () => {
+    console.log(articleInfo);
+    await serverClient.post("/post", { ...articleInfo });
+    navigate("/");
+  };
+
+  const explainCnt = `${textCnt}/${MAX_NUM}`;
 
   return (
     <>
       <StyledIntroText onChange={handleChange} isOver={isOver10} placeholder="프로젝트 요약을 입력해주세요." />
       <StyledIntroExplain isOver={isOver10}>
         {!isOver10 && <p>최소 10자이상 입력해주세요.</p>}
-        <StyledCnt isOver={isOver10}>
-          {textCnt}/{MAX_NUM}
-        </StyledCnt>
+        <StyledCnt isOver={isOver10}>{explainCnt}</StyledCnt>
       </StyledIntroExplain>
       <StyledPostHr />
-      <StyledPostBtn isOver={isOver10}>제출</StyledPostBtn>
+      <StyledPostBtn isOver={isOver10} onClick={handlePost}>
+        제출
+      </StyledPostBtn>
     </>
   );
 }

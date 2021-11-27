@@ -6,3 +6,10 @@ export const client = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+export const serverClient = axios.create({
+  baseURL: "https://asia-northeast3-tumblbug-sopt.cloudfunctions.net/api",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
