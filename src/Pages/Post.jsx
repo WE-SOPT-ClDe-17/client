@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Tags from "../Components/Post/Tags";
 import TextNPost from "../Components/Post/TextNPost";
 
 function Post() {
+  const [articleInfo, setArticleInfo] = useState({
+    postId: 0,
+    thumbnail: "",
+    tag: "",
+    title: "",
+    description: "",
+    ttl: "",
+    targetMoney: 0,
+    collectedMoney: 0,
+    userId: 0,
+    userName: "",
+    achievedPercentage: 0,
+  });
+
+  const handleInfoChange = (key, value) => {
+    const tempArticleInfo = { ...articleInfo };
+    tempArticleInfo[key] = value;
+    setArticleInfo(tempArticleInfo);
+  };
+
   return (
     <StyledMain>
       <section>
@@ -13,13 +33,13 @@ function Post() {
           어떤 프로젝트를 계획 중이신가요?
         </StyledTagH1>
         <StyledTagH3>나중에 변경 가능하니 너무 걱정마세요</StyledTagH3>
-        <Tags />
+        <Tags onChangeInfo={handleInfoChange} />
       </section>
 
       <StyeldSection>
         <StyledIntroH1>프로젝트를 간단하게 소개해주세요.</StyledIntroH1>
         <StyledIntroH3>나중에 수정 가능하니 편하게 적어주세요.</StyledIntroH3>
-        <TextNPost />
+        <TextNPost articleInfo={articleInfo} onChangeInfo={handleInfoChange} />
       </StyeldSection>
     </StyledMain>
   );

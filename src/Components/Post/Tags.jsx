@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function Tags() {
+function Tags({ onChangeInfo }) {
   const tagsText = [
     "게임",
     "공연",
@@ -18,12 +18,18 @@ function Tags() {
     "패션",
     "저널리즘",
   ];
+  const handleClickBtn = (e) => {
+    const whatTag = e.target.innerText;
+    onChangeInfo("tag", whatTag);
+  };
   return (
     <div>
       {tagsText.map((text, idx) => (
         <React.Fragment key={`tag-${idx - 1}`}>
           <TagRadio type="radio" id={`tag_radio${idx - 1}`} name="tag" />
-          <TagRadioLabel htmlFor={`tag_radio${idx - 1}`}>{text}</TagRadioLabel>
+          <TagRadioLabel onClick={handleClickBtn} htmlFor={`tag_radio${idx - 1}`}>
+            {text}
+          </TagRadioLabel>
         </React.Fragment>
       ))}
     </div>
