@@ -4,34 +4,47 @@ import { ReactComponent as TimeIcon } from "../../assets/icons/TimeIcon.svg";
 import { ReactComponent as LikeActive } from "../../assets/icons/likeActiveIcon.svg";
 import { ReactComponent as LikeInActive } from "../../assets/icons/likeInactiveIcon.svg";
 import { ReactComponent as _PickIcon } from "../../assets/icons/icn_pick.svg";
+import { serverClient } from "../../Lib/api.js";
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function Card({ data }) {
+function Card({ cardData }) {
   const [like, setLike] = useState(false);
   let restTime = 0;
-  if (data.timeLimit >= 24) {
-    restTime = `${Math.floor(data.timeLimit / 24)}일`;
+  if (cardData.ttl >= 24) {
+    restTime = `${Math.floor(cardData.ttl / 24)}일`;
   } else {
-    restTime = `${data.timeLimit}시간`;
+    restTime = `${cardData.ttl}시간`;
   }
+  const handleLike = async () => {
+    try {
+      const temp = await serverClient.post("my-like-post/like", { postId: cardData.postId, userId: 1 });
+      if (temp.data.status === 200) {
+        setLike(!like);
+      }
+    } catch (e) {
+      return null;
+    }
+  };
 
   return (
     <StyledCardBox>
       <PickIcon />
       <ThumbnailBox>
-        <img src={data.image} />
-        <LikeButton onClick={() => setLike(!like)}>{like ? <LikeInActive /> : <LikeActive />}</LikeButton>
+        <img src={cardData.thumbnail} />
+        <LikeButton onClick={handleLike}>{like ? <LikeInActive /> : <LikeActive />}</LikeButton>
       </ThumbnailBox>
-      <StyledTitle>{data.title}</StyledTitle>
-      <StyledTag>{data.tags.join(" | ")}</StyledTag>
-      <StyledContent>{data.content}</StyledContent>
+      <StyledTitle>{cardData.title}</StyledTitle>
+      <StyledTag>
+        {cardData.tag} | {cardData.userName}
+      </StyledTag>
+      <StyledContent>{cardData.description}</StyledContent>
       <CardFooter>
         <div>
-          <FundMoneyTag>{numberWithCommas(data.price)}원</FundMoneyTag>
-          <FundRasingRate>{data.fundRate}%</FundRasingRate>
+          <FundMoneyTag>{numberWithCommas(cardData.collectedMoney)}원</FundMoneyTag>
+          <FundRasingRate>{cardData.achievedPercentage}%</FundRasingRate>
         </div>
         <TimeTagBox>
           <TimeIcon width="1.3rem" />
