@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { client } from "../../Lib/api.js";
+import { serverClient } from "../../Lib/api.js";
 import Card from "./Card";
 import styled from "styled-components";
 //json불러오기 -> .map하기
@@ -9,9 +9,10 @@ function Cards() {
   const [postData, setPostData] = useState([]);
 
   const getPostData = async () => {
-    const { data } = await client.get("/data");
-    console.log(`data`, data);
-    setPostData(data);
+    const { data } = await serverClient.get("/post");
+    const cardData = data.data;
+    console.log(`cardData`, cardData);
+    setPostData(cardData);
   };
   useEffect(() => {
     getPostData();
@@ -24,8 +25,8 @@ function Cards() {
         <StyledRecommendTag>2022 신년준비 위원회</StyledRecommendTag>
       </RecommendTagBox>
       <StyledCardsContainer>
-        {postData.map((data) => (
-          <Card key={data.id} data={data} />
+        {postData.map((cardData) => (
+          <Card key={cardData.postId} cardData={cardData} />
         ))}
       </StyledCardsContainer>
     </>
@@ -62,5 +63,5 @@ const StyledCardsContainer = styled.div`
   flex-wrap: wrap;
   max-width: 102rem;
   margin: auto;
-  justify-content: center;
+  justify-content: flex-start;
 `;
