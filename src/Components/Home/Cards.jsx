@@ -11,7 +11,6 @@ function Cards() {
   const getPostData = async () => {
     const { data } = await serverClient.get("/post");
     const cardData = data.data;
-    console.log(`cardData`, cardData);
     setPostData(cardData);
   };
   useEffect(() => {
